@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome - Expense Tracker{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+        <h1 class="display-4 mb-4">Welcome to Expense Tracker</h1>
+        <p class="lead mb-4">Your personal finance management solution</p>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="h4 mb-3">Track Your Finances with Ease</h2>
+                <p class="mb-0">Our expense tracker helps you manage your money effectively by providing insights into your spending habits and financial health.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="h5">Track Expenses</h3>
+                        <p>Record and categorize your daily expenses to understand where your money goes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="h5">Monitor Earnings</h3>
+                        <p>Keep track of your income and analyze your earning patterns.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="h5">Financial Insights</h3>
+                        <p>Get detailed reports and insights about your financial health.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            {% if not current_user.is_authenticated %}
+                <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg me-2">Get Started</a>
+                <a href="{{ url_for('login') }}" class="btn btn-outline-primary btn-lg">Login</a>
+            {% else %}
+                <a href="{{ url_for('dashboard') }}" class="btn btn-primary btn-lg">Go to Dashboard</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %} 
